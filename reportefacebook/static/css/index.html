@@ -1,0 +1,60 @@
+{% load staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Assiduous	 by Free CSS Templates</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="header-wrapper">
+	<div id="header">
+		<div id="menu">
+			<ul>
+				<li><a href="#" class="first">Home</a></li>
+				<li class="current_page_item"><a href="#">Blog</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</div>
+		<div id="search">
+			<form method="get" action="#">
+				<fieldset>
+					<input type="text" name="s" id="search-text" size="15" />
+					<input type="submit" id="search-submit" value="GO" />
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</div>
+<div id="logo">
+	<h1><a href="#">Assiduous</a></h1>
+	<p><em> template design by <a>Free CSS Templates</a></em></p>
+</div><hr />
+<div id="page"><div class="inner_copy"></div>
+	<div id="page-bgtop">
+		<div id="content">
+			<div class="post">
+				<form method="POST" name="formConfig" action ="{% url "generar_reporte" %}">
+				  {% csrf_token %}
+
+				  <p class="meta">Fecha de Inicio del reporte:</p>
+				  <input type="date" name="fechaInicio">
+
+				  <p class="meta">Fecha de Fin del reporte:</p>
+				  <input type="date" name="fechaFin">
+
+				  <p class="meta">Correo al que se va a enviar</p>
+				  <input type="input" name="correo">
+
+				  <input type="submit" value = "Generar Reporte">
+				</form>
+			</div>
+		</div>
+		
+	</div>
+</div>
+</body>
+</html>

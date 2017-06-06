@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Generador Reportes</title>
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="static/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									
+								</header>
+
+							<!-- Banner -->
+								
+
+							<!-- Section -->
+								<section>
+
+									<form method="POST" name="formConfig" action ="{% url "generar_reporte" %}">
+									  {% csrf_token %}
+
+									  
+									  <p>Fecha de Inicio del reporte:
+									  <input type="date" name="fechaInicio">
+
+									  <p>Fecha de Fin del reporte:</p>
+									  <input type="date" name="fechaFin">
+
+									  <p>Porcentaje de el Alcance:</p>
+									  <input type="text" name="alcance" value= {{alcance}}>
+
+									  <p>Porcentaje de los Compartidos:</p>
+									  <input type="text" name="shares" value= {{share}}>
+
+									  <p>Porcentaje de las Reacciones:</p>
+									  <input type="text" name="reacciones" value= {{reacciones}}> 
+
+									  <p>Porcentaje interno de los Likes:</p>
+									  <input type="text" name="likes" value= {{likes}}>
+
+									  <p>Porcentaje interno de los Loves:</p>
+									  <input type="text" name="love" value= {{love}}>
+
+									  <p>Porcentaje interno de los Hahas:</p>
+									  <input type="text" name="haha" value= {{haha}}>
+
+									  <p>Porcentaje interno de los Wows:</p>
+									  <input type="text" name="wow" value= {{wow}}>
+
+									  <p>Porcentaje interno de los Sads:</p>
+									  <input type="text" name="sad" value= {{sad}}>
+
+									  <p>Porcentaje interno de los Angrys:</p>
+									  <input type="text" name="angry" value= {{angry}}>
+
+									  <p class="meta">Correo al que se va a enviar</p>
+									  <input type="text" name="correo" value= {{correo}}>
+
+									  <input type="submit" value = "Generar Reporte">
+									</form>
+								</section>
+
+
+						</div>
+					</div>
+
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="static/js/jquery.min.js"></script>
+			<script src="static/js/skel.min.js"></script>
+			<script src="static/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="static/js/main.js"></script>
+
+	</body>
+</html>

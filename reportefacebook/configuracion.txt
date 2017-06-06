@@ -1,0 +1,12 @@
+inicio 2017-04-01
+fin 2017-04-30
+formula 2.0
+formula 3.0
+formula 5.0
+formula 0.2
+formula 0.35
+formula 0.15
+formula 0.15
+formula 0.1
+formula 0.05
+correos rain34188@yahoo.com

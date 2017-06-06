@@ -1,0 +1,71 @@
+---
+title: "Reporte de Facebook"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+posts <- read.csv("Datos Posts.csv", stringsAsFactors = FALSE,encoding="UTF-8")
+cities <- read.csv("Datos Ciudades.csv", stringsAsFactors = FALSE,encoding="UTF-8")
+ages <- read.csv("Datos Demograficos.csv", stringsAsFactors = FALSE,encoding="UTF-8")
+config = read.table("configuracion.txt", 
+               sep=" ", 
+               col.names=c("name", "data"), 
+               fill=FALSE, 
+               strip.white=TRUE, stringsAsFactors = FALSE)
+```
+
+```{r, echo=FALSE}
+perio = sprintf("Reporte hecho desde %s a %s",config[1,]$data,config[2,]$data)
+```
+##`r perio`
+
+##Post 1 (Mejor evaluado):
+```{r, echo=FALSE}
+posts[1,]$fecha
+posts[1,]$message
+```
+
+##Post 2:
+```{r, echo=FALSE}
+posts[2,]$fecha
+posts[2,]$message
+```
+
+##Post 3:
+```{r, echo=FALSE}
+posts[3,]$fecha
+posts[3,]$message
+```
+
+##Calificaciones, compartidos, alcance orgánico y pagado de los posts:
+```{r, echo=FALSE}
+posts <- posts[,-5]
+posts <- posts[,-6]
+posts[c(2,3,7,6,1,8)]
+```
+
+##Reacciones de los posts:
+```{r, echo=FALSE}
+posts[c(8,12,10,9,4,5,11)]
+```
+
+```{r, echo=FALSE}
+pie(ages[1:10,]$Cantidad, col = rainbow(length(ages[1:10,]$Demografia)), main = "Gráfica del alcance de la página respecto a la demografía",labels = ages[1:10,]$Demografia)
+```
+
+##Tabla del alcance de la página respecto a la demografía
+```{r, echo=FALSE}
+print(ages)
+```
+
+
+```{r, echo=FALSE}
+pie(cities[1:10,]$Cantidad, col = rainbow(length(cities[1:10,]$Ciudad)), main = "Gráfica del alcance de la página respecto a las ciudades de \nlas personas ",labels =cities[1:10,]$Ciudad)
+```
+
+##Tabla del alcance de la página respecto a las ciudades de las personas
+```{r, echo=FALSE}
+print(cities)
+```
